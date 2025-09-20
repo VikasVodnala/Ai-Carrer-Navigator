@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Navigator - Your Personalized Career Guidance Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">🚀 AI Career Navigator</h1>
+                <nav class="nav-menu">
+                    <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+                    <button class="nav-btn" data-section="assessment">Skills Assessment</button>
+                    <button class="nav-btn" data-section="careers">Career Explorer</button>
+                    <button class="nav-btn" data-section="analytics">Market Analytics</button>
+                    <button class="nav-btn" data-section="learning">Learning Path</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="section active">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h2>Discover Your Perfect Career Path with AI</h2>
+                        <p>Navigate the evolving job market with personalized AI-powered career guidance, skills assessment, and market insights.</p>
+                        <div class="cta-buttons">
+                            <button class="btn btn--primary btn--lg" onclick="startAssessment()">Take Skills Assessment</button>
+                            <button class="btn btn--outline btn--lg" onclick="showSection('analytics')">Explore Job Market</button>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">25,000+</span>
+                            <span class="stat-label">Users Helped</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8,500+</span>
+                            <span class="stat-label">Career Transitions</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">94%</span>
+                            <span class="stat-label">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card card">
+                        <div class="card__body">
+                            <h3>🎯 Your Progress</h3>
+                            <div class="progress-overview">
+                                <div class="progress-item">
+                                    <span class="progress-label">Skills Assessment</span>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="assessment-progress" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-label">Career Exploration</span>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="exploration-progress" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-label">Learning Plan</span>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" id="learning-progress" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card card">
+                        <div class="card__body">
+                            <h3>📈 Market Insights</h3>
+                            <div class="insight-list" id="market-insights">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card card">
+                        <div class="card__body">
+                            <h3>🏆 Achievements</h3>
+                            <div class="achievement-showcase" id="user-achievements">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Assessment Section -->
+            <section id="assessment" class="section">
+                <div class="assessment-header">
+                    <h2>🧠 AI Skills Assessment</h2>
+                    <p>Complete our comprehensive assessment to get personalized career recommendations</p>
+                    <div class="assessment-progress">
+                        <div class="progress-bar large">
+                            <div class="progress-fill" id="assessment-progress-bar" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">Question <span id="current-question">0</span> of <span id="total-questions">0</span></span>
+                    </div>
+                </div>
+
+                <div class="assessment-content" id="assessment-content">
+                    <div class="assessment-start card">
+                        <div class="card__body">
+                            <h3>Ready to Start Your Skills Assessment?</h3>
+                            <p>This comprehensive assessment will evaluate your:</p>
+                            <ul>
+                                <li>Technical Skills & Programming Knowledge</li>
+                                <li>Soft Skills & Communication Abilities</li>
+                                <li>Business & Management Skills</li>
+                                <li>Industry Experience & Tools</li>
+                            </ul>
+                            <button class="btn btn--primary btn--full-width" onclick="beginAssessment()">Begin Assessment</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="assessment-results hidden" id="assessment-results">
+                    <div class="results-header">
+                        <h3>🎉 Your Skills Profile</h3>
+                        <p>Based on your assessment, here's your personalized skills analysis</p>
+                    </div>
+                    <div class="skills-radar">
+                        <canvas id="skills-radar-chart" style="position: relative; height: 400px;"></canvas>
+                    </div>
+                    <div class="skills-breakdown" id="skills-breakdown">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Career Explorer Section -->
+            <section id="careers" class="section">
+                <div class="careers-header">
+                    <h2>💼 Career Path Explorer</h2>
+                    <p>Discover AI-recommended career paths tailored to your skills and interests</p>
+                </div>
+
+                <div class="career-recommendations" id="career-recommendations">
+                    <div class="recommendation-placeholder card">
+                        <div class="card__body">
+                            <h3>Complete Your Skills Assessment</h3>
+                            <p>Take our comprehensive skills assessment first to get personalized career recommendations powered by AI.</p>
+                            <button class="btn btn--primary" onclick="showSection('assessment')">Start Assessment</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="career-details-modal modal hidden" id="career-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="career-modal-title">Career Details</h3>
+                            <button class="close-btn" onclick="closeCareerModal()">&times;</button>
+                        </div>
+                        <div class="modal-body" id="career-modal-body">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analytics Section -->
+            <section id="analytics" class="section">
+                <div class="analytics-header">
+                    <h2>📊 Job Market Analytics</h2>
+                    <p>Real-time insights into job market trends and opportunities for 2025</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card card">
+                        <div class="card__body">
+                            <h3>🔥 In-Demand Skills</h3>
+                            <div class="chart-container" style="position: relative; height: 350px;">
+                                <canvas id="skills-demand-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card card">
+                        <div class="card__body">
+                            <h3>🚀 Industry Growth</h3>
+                            <div class="chart-container" style="position: relative; height: 350px;">
+                                <canvas id="industry-growth-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card card">
+                        <div class="card__body">
+                            <h3>💰 Salary Trends</h3>
+                            <div class="salary-trends" id="salary-trends">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card card">
+                        <div class="card__body">
+                            <h3>📈 Market Overview</h3>
+                            <div class="market-stats" id="market-stats">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Learning Path Section -->
+            <section id="learning" class="section">
+                <div class="learning-header">
+                    <h2>🎓 Personalized Learning Path</h2>
+                    <p>Custom learning roadmap to achieve your career goals</p>
+                </div>
+
+                <div class="learning-content">
+                    <div class="learning-placeholder card">
+                        <div class="card__body">
+                            <h3>Create Your Learning Journey</h3>
+                            <p>Complete your skills assessment and explore career paths to generate a personalized learning roadmap with recommended courses and certifications.</p>
+                            <div class="placeholder-actions">
+                                <button class="btn btn--primary" onclick="showSection('assessment')">Take Assessment</button>
+                                <button class="btn btn--secondary" onclick="showSection('careers')">Explore Careers</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-plan hidden" id="learning-plan">
+                    <div class="learning-roadmap" id="learning-roadmap">
+                        <!-- Dynamic content -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 AI Career Navigator. Empowering careers through intelligent guidance.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
